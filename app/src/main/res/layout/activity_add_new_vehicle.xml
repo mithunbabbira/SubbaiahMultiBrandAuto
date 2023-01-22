@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/black">
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:orientation="vertical">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/vehiNo"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:hint="Vehicle Number"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    app:hintTextColor="@color/white"
+                    app:counterTextColor="@color/white">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/vehicleNum"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textCapCharacters"
+                        android:textColor="@color/white" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <!--Author-->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/vehMod"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"
+                    android:hint="Vehicle Model"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    app:hintTextColor="@color/white"
+                    app:counterTextColor="@color/white">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/vehicleMod"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textCapCharacters"
+                        android:textColor="@color/white" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <!--Description-->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/mile"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"
+                    android:hint="Mileage"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    app:hintTextColor="@color/white"
+                    app:counterTextColor="@color/white">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/mileage"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:textColor="@color/white"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/dataSet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:layout_marginStart="30dp"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+                app:layout_constraintStart_toStartOf="@+id/linearLayout"
+                />
+
+            <Button
+                android:id="@+id/setDateBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Set Date"
+                android:shadowColor="@color/black"
+                android:layout_marginEnd="30dp"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+                app:layout_constraintEnd_toEndOf="@id/linearLayout"/>
+
+
+
+
+
+
+            <Button
+                android:id="@+id/submitBtn"
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:shadowColor="@color/black"
+                app:layout_constraintTop_toBottomOf="@+id/dataSet"
+                app:layout_constraintStart_toStartOf="@+id/linearLayout"
+                app:layout_constraintEnd_toEndOf="@+id/linearLayout"
+                android:text="Submit" />
+
+
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+<androidx.constraintlayout.widget.ConstraintLayout
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".AddRepairDetails">
+
+    <TextView
+        android:id="@+id/heading"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
+    <EditText
+        android:id="@+id/repairData"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:hint="Repair Detail"
+        android:textColorHint="@color/black"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@+id/heading"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <Button
+        android:id="@+id/repairDataSubBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:text="Add"
+        app:layout_constraintStart_toEndOf="@+id/repairData"
+        app:layout_constraintTop_toTopOf="@+id/repairData"
+        app:layout_constraintBottom_toBottomOf="@+id/repairData"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        app:layout_constraintTop_toBottomOf="@+id/repairDataSubBtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <EditText
+        android:id="@+id/upcomingRepair"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Pending work"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:gravity="start"
+        app:layout_constraintEnd_toStartOf="@+id/upcomingRepairDataSubBtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/submit"/>
+
+    <Button
+        android:id="@+id/upcomingRepairDataSubBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:text="Add"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toTopOf="@+id/upcomingRepair"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/upcomingRepair"
+        />
+
+
+    <TextView
+        android:id="@+id/submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        android:textSize="35sp"
+        android:gravity="center"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

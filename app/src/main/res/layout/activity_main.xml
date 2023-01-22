@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        android:layout_height="match_parent">
+
+
+        <EditText
+            android:id="@+id/getVehicleNo"
+            android:backgroundTint="@color/black"
+            android:textColor="@color/black"
+            android:hint="Vehicle Number"
+            android:textColorHint="@color/black"
+            android:inputType="textCapCharacters"
+            android:textAllCaps="true"
+            android:gravity="center"
+            android:textAlignment="center"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="150dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            />
+
+        <Button
+            android:id="@+id/submitBtn"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:text="Submit"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/getVehicleNo"
+            app:layout_constraintStart_toStartOf="@+id/getVehicleNo"
+            app:layout_constraintEnd_toEndOf="@+id/getVehicleNo"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>
