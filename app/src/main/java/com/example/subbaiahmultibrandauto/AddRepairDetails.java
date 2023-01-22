@@ -44,6 +44,7 @@ public class AddRepairDetails extends AppCompatActivity {
         Intent intent = getIntent();
 
         data = (Data) getIntent().getSerializableExtra("data");
+        //yes
 
         listener = new Listener() {
             @Override
