@@ -9,16 +9,17 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.view.View;
 
+import com.example.subbaiahmultibrandauto.ExistingData.ExistingVehicleDataList;
 import com.example.subbaiahmultibrandauto.databinding.ActivityMainBinding;
 import com.example.subbaiahmultibrandauto.entities.Data;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
+
+import java.io.Serializable;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -86,10 +87,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if (task.isSuccessful()) {
+
+                    List<Data> dataList = task.getResult().toObjects(Data.class);
                     Intent myIntent;
-                    if(task.getResult().getDocuments().size()!=0){
+                    if(dataList.size()!=0){
                         myIntent = new Intent(MainActivity.this, ExistingVehicleDataList.class);
-                        myIntent.putExtra("newVehicleNumber",String.valueOf(text));
+                        myIntent.putExtra("dataList", (Serializable) dataList);
                         startActivity(myIntent);
                     }else{
                          myIntent = new Intent(MainActivity.this, AddNewVehicle.class);
