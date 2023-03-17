@@ -17,7 +17,7 @@ import java.util.Map;
 
 public class AddNewVehicle extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
     ActivityAddNewVehicleBinding activityAddNewVehicleBinding;
-    private String newVehicleNo;
+    private String newVehicleNo , vehicleModel;
     private String date;
 
     @Override
@@ -29,6 +29,9 @@ public class AddNewVehicle extends AppCompatActivity implements DatePickerDialog
 
         Intent intent = getIntent();
         newVehicleNo = intent.getStringExtra("newVehicleNumber");
+        vehicleModel = intent.getStringExtra("vehicleModel");
+
+        activityAddNewVehicleBinding.vehicleMod.setText(vehicleModel!=null?vehicleModel:"");
         activityAddNewVehicleBinding.vehicleNum.setText(newVehicleNo);
 
         Data data = new Data();
