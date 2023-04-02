@@ -29,6 +29,7 @@
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:textColor="@color/black"
+        android:textSize="15dp"
         android:hint="Pending work"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/heading"/>
@@ -61,9 +62,26 @@
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:textColor="@color/black"
+        android:textSize="15dp"
         android:hint="New repair details"
         app:layout_constraintTop_toBottomOf="@+id/upcomingRepair"
         app:layout_constraintStart_toStartOf="parent"/>
+
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/partCostData"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:textColor="@color/black"
+        android:hint="Amount"
+        android:inputType="number"
+        android:textSize="15dp"
+        android:layout_marginStart="20dp"
+        app:layout_constraintTop_toTopOf="@+id/repairData"
+        app:layout_constraintBottom_toBottomOf="@+id/repairData"
+        app:layout_constraintStart_toEndOf="@+id/repairData"
+        />
+
 
 
     <Button
@@ -93,7 +111,7 @@
         android:id="@+id/rvHeading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Current added repair list"
+        android:text="@string/current_added_repair_list"
         android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintTop_toBottomOf="@+id/v1"
@@ -103,10 +121,60 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="200dp"
         app:layout_constraintTop_toBottomOf="@+id/rvHeading"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        />
+
+
+    <TextView
+        android:id="@+id/labourHeading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/current_labour"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerView"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/labourType"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:textColor="@color/black"
+        android:textSize="15dp"
+        android:hint="Labour cost"
+        app:layout_constraintTop_toBottomOf="@+id/labourHeading"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/labourCost"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:textColor="@color/black"
+        android:hint="Amount"
+        android:inputType="number"
+        android:textSize="15dp"
+        android:layout_marginStart="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/labourHeading"
+        app:layout_constraintStart_toEndOf="@+id/labourType"
+        />
+
+
+
+    <Button
+        android:id="@+id/labourCostAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:text="Add"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginRight="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/labourHeading"
         />
 
     <View
@@ -143,6 +211,17 @@
         />-->
 
 
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/labourRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        app:layout_constraintTop_toBottomOf="@+id/labourCost"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+
     <Button
         android:id="@+id/submit"
         android:layout_width="wrap_content"
@@ -154,7 +233,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginBottom="30dp"
-        app:layout_constraintTop_toBottomOf="@+id/v2"/>
+        app:layout_constraintTop_toBottomOf="@+id/labourRecyclerView"/>
 
 
     <RelativeLayout

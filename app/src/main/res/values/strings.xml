@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">SubbaiahMultiBrandAuto</string>
+    <string name="current_added_repair_list"><u>Current added repair list</u></string>
+    <string name="current_labour"><u>Current labour cost repair</u></string>
 </resources>

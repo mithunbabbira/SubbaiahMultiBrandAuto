@@ -1,11 +1,14 @@
 package com.example.subbaiahmultibrandauto;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
 
 import android.app.DatePickerDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.DatePicker;
 
 import com.example.subbaiahmultibrandauto.databinding.ActivityAddNewVehicleBinding;
@@ -105,8 +108,9 @@ public class AddNewVehicle extends AppCompatActivity implements DatePickerDialog
 
         // Create a new DatePickerDialog with today's date as default
         DatePickerDialog datePickerDialog = new DatePickerDialog(this, this, year, month, dayOfMonth);
+        Button positiveButton = datePickerDialog.getButton(DialogInterface.BUTTON_POSITIVE);
+        Button negativeButton = datePickerDialog.getButton(DialogInterface.BUTTON_NEGATIVE);
 
-        // Show the DatePickerDialog
         datePickerDialog.show();
 
     }

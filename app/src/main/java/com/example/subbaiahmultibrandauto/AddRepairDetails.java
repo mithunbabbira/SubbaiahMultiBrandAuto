@@ -33,7 +33,6 @@ public class AddRepairDetails extends AppCompatActivity {
     private ActivityAddRepairDetailsBinding activityAddRepairDetailsBinding;
     private Listener listener ;
     private Data data ;
-    private Gson gson = new Gson();
     private Dialog dialog ;
     private FirebaseFirestore mStore;
     @Override
@@ -42,7 +41,6 @@ public class AddRepairDetails extends AppCompatActivity {
         activityAddRepairDetailsBinding = DataBindingUtil.setContentView(this,R.layout.activity_add_repair_details);
         mStore = FirebaseFirestore.getInstance();
 
-        Intent intent = getIntent();
 
         data = (Data) getIntent().getSerializableExtra("data");
         //yes
@@ -83,7 +81,6 @@ public class AddRepairDetails extends AppCompatActivity {
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dialog.setContentView(R.layout.submit_comfirm_dialog_box);
-
         Button cancel = dialog.findViewById(R.id.cancelBtn);
         Button confirm = dialog.findViewById(R.id.confirmBtn);
 
@@ -98,12 +95,8 @@ public class AddRepairDetails extends AppCompatActivity {
                 data.setCurrentRepairList(currentRepairList);
                 activityAddRepairDetailsBinding.rlLoader.setVisibility(View.VISIBLE);
                 addDataToFireStore();
-
-
             }else{
                 Toast.makeText(AddRepairDetails.this ,"Repair list can not be empty", Toast.LENGTH_SHORT).show();
-
-
             }
 
 

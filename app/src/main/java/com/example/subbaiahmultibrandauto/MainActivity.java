@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.subbaiahmultibrandauto.ExistingData.ExistingVehicleDataList;
 import com.example.subbaiahmultibrandauto.databinding.ActivityMainBinding;
@@ -36,8 +37,14 @@ public class MainActivity extends AppCompatActivity {
         activityMainBinding.submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                activityMainBinding.rlLoader.setVisibility(View.VISIBLE);
-                checkVehicleExistence(activityMainBinding.getVehicleNo.getText());
+
+                if(activityMainBinding.getVehicleNo.getText()!=null && activityMainBinding.getVehicleNo.getText().length()>6 ){
+                    activityMainBinding.rlLoader.setVisibility(View.VISIBLE);
+                    checkVehicleExistence(activityMainBinding.getVehicleNo.getText());
+                }else{
+                    Toast.makeText(MainActivity.this ,"Please enter valid registration number", Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
     }
