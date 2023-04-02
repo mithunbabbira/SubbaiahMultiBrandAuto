@@ -98,14 +98,16 @@ public class AddRepairDetails extends AppCompatActivity {
                 data.setCurrentRepairList(currentRepairList);
                 activityAddRepairDetailsBinding.rlLoader.setVisibility(View.VISIBLE);
                 addDataToFireStore();
-                dialog.dismiss();
+
 
             }else{
-
                 Toast.makeText(AddRepairDetails.this ,"Repair list can not be empty", Toast.LENGTH_SHORT).show();
+
 
             }
 
+
+            dialog.dismiss();
         });
 
         dialog.show();
