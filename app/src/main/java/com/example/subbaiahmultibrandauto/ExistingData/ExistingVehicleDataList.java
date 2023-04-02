@@ -29,18 +29,13 @@ public class ExistingVehicleDataList extends AppCompatActivity {
          dataList = (List<Data>) getIntent().getSerializableExtra("dataList");
 
          setStartingData();
-
-
-
-
-
     }
 
     private void setStartingData() {
 
-        activityExistingVehicleDataListBinding.vehicleNoTv.setText(dataList.get(0).getVehicleNo());
-        activityExistingVehicleDataListBinding.vehicleModelTv.setText(dataList.get(0).getVehicleModel());
-        activityExistingVehicleDataListBinding.phoneNoTv.setText(dataList.get(0).getPhoneNo());
+        activityExistingVehicleDataListBinding.vehicleNoTv.setText(":   "+dataList.get(0).getVehicleNo());
+        activityExistingVehicleDataListBinding.vehicleModelTv.setText(":   "+dataList.get(0).getVehicleModel());
+        activityExistingVehicleDataListBinding.phoneNoTv.setText(":   "+dataList.get(0).getPhoneNo());
         activityExistingVehicleDataListBinding.addMoreBtn.setOnClickListener(view -> {
             Intent myIntent = new Intent(ExistingVehicleDataList.this, AddNewVehicle.class);
             myIntent.putExtra("newVehicleNumber",dataList.get(0).getVehicleNo());

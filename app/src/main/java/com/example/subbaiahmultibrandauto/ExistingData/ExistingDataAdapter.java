@@ -28,7 +28,11 @@ public class ExistingDataAdapter  extends RecyclerView.Adapter<ExistingDataAdapt
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.date.setText(dataList.get(position).getDate());
+        holder.mileage.setText(String.valueOf(dataList.get(position).getMileage())+" Km");
         holder.date.setOnClickListener(view -> {
+            listener.clickedItem(position);
+        });
+        holder.mileage.setOnClickListener(view -> {
             listener.clickedItem(position);
         });
     }
@@ -39,10 +43,11 @@ public class ExistingDataAdapter  extends RecyclerView.Adapter<ExistingDataAdapt
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView date;
+        TextView date,mileage;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             date =  itemView.findViewById(R.id.date);
+            mileage =  itemView.findViewById(R.id.mileage);
 //            itemView.setOnClickListener(this);
 //            itemView.setOnCreateContextMenuListener(this);
         }

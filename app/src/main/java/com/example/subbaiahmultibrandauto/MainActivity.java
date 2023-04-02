@@ -19,6 +19,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -47,8 +49,12 @@ public class MainActivity extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     activityMainBinding.rlLoader.setVisibility(View.GONE);
                     List<Data> dataList = task.getResult().toObjects(Data.class);
+
+                    Collections.reverse(dataList);
+
                     Intent myIntent;
                     if(dataList.size()!=0){
+
                         myIntent = new Intent(MainActivity.this, ExistingVehicleDataList.class);
                         myIntent.putExtra("dataList", (Serializable) dataList);
                         startActivity(myIntent);

@@ -9,63 +9,102 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
+    android:padding="10dp"
     tools:context=".AddRepairDetails">
 
     <TextView
         android:id="@+id/heading"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
 
-    <EditText
+    <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/repairData"
-        android:layout_width="300dp"
+        android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:hint="Repair Detail"
-        android:textColorHint="@color/black"
         android:textColor="@color/black"
+        android:hint="New repair details"
         app:layout_constraintTop_toBottomOf="@+id/heading"
         app:layout_constraintStart_toStartOf="parent"/>
+
 
     <Button
         android:id="@+id/repairDataSubBtn"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:text="Add"
-        app:layout_constraintStart_toEndOf="@+id/repairData"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginRight="20dp"
         app:layout_constraintTop_toTopOf="@+id/repairData"
         app:layout_constraintBottom_toBottomOf="@+id/repairData"
+        />
+
+    <View
+        android:id="@+id/v1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/black"
+        app:layout_constraintTop_toBottomOf="@+id/repairDataSubBtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
+
+    <TextView
+        android:id="@+id/rvHeading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Current added repair list"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@+id/v1"
+        app:layout_constraintStart_toStartOf="parent"
         />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="400dp"
-        app:layout_constraintTop_toBottomOf="@+id/repairDataSubBtn"
+        app:layout_constraintTop_toBottomOf="@+id/rvHeading"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         />
 
-    <EditText
+    <View
+        android:id="@+id/v2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerView"/>
+
+
+    <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/upcomingRepair"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="Pending work"
+        android:layout_height="50dp"
         android:textColor="@color/black"
-        android:textColorHint="@color/black"
-        android:gravity="start"
-        app:layout_constraintEnd_toStartOf="@+id/upcomingRepairDataSubBtn"
+        android:hint="Pending work"
+
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/submit"/>
+        app:layout_constraintTop_toBottomOf="@+id/v2"/>
+
+
 
     <Button
         android:id="@+id/upcomingRepairDataSubBtn"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:text="Add"
+        android:layout_marginRight="20dp"
         android:textColor="@color/black"
         app:layout_constraintTop_toTopOf="@+id/upcomingRepair"
         app:layout_constraintEnd_toEndOf="parent"
@@ -73,17 +112,18 @@
         />
 
 
-    <TextView
+    <Button
         android:id="@+id/submit"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Submit"
-        android:textSize="35sp"
+        android:textSize="25sp"
         android:gravity="center"
         android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        android:layout_marginBottom="30dp"
+        app:layout_constraintTop_toBottomOf="@+id/upcomingRepair"/>
 
 
     <RelativeLayout

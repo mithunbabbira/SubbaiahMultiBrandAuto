@@ -4,16 +4,14 @@
     android:layout_height="wrap_content"
     android:padding="5dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <TextView
 
+    <TextView
         android:id="@+id/itemTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
         android:textSize="25sp"
         android:gravity="left"
-        android:text="weigrwei"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/close"
@@ -27,4 +25,13 @@
         app:layout_constraintTop_toTopOf="@+id/itemTv"
         app:layout_constraintBottom_toBottomOf="@+id/itemTv"
         />
+    <View
+        android:id="@+id/v2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/border_grey"
+        app:layout_constraintTop_toBottomOf="@+id/itemTv"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
