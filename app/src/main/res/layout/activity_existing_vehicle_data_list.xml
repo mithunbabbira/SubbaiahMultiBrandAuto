@@ -3,14 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
 >
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/mainConstraint"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
       >
-
-
         <TextView
             android:id="@+id/addMoreBtn"
             android:layout_width="300dp"
@@ -20,7 +17,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:gravity="center"
             android:text="Add new Data"/>
-
         <LinearLayout
             android:id="@+id/mainLinearLayout"
             android:layout_width="match_parent"
@@ -61,7 +57,6 @@
                     android:text="vehicle Model"
                     android:gravity="center"
                     android:layout_weight="1"/>
-
                 <TextView
                     android:id="@+id/vehicleModelTv"
                     android:layout_width="wrap_content"
@@ -70,7 +65,6 @@
                     android:gravity="center"
                     android:layout_weight="1"/>
             </LinearLayout>
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -91,10 +85,7 @@
                     android:gravity="center"
                     android:layout_weight="1"/>
             </LinearLayout>
-
-
         </LinearLayout>
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"

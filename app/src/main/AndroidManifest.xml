@@ -15,6 +15,9 @@
         android:theme="@style/Theme.SubbaiahMultiBrandAuto"
         tools:targetApi="31">
         <activity
+            android:name=".ViewRepairDetailsActivity"
+            android:exported="false" />
+        <activity
             android:name=".ExistingData.ExistingVehicleDataList"
             android:exported="false">
             <meta-data
