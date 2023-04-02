@@ -10,15 +10,15 @@ public class Data  implements Serializable {
     private String vehicleModel;
     private int mileage;
     private String date;
-    private String upcomingRepair;
+    private String pendingRepair;
     private List<String> currentRepairList;
 
-    public String getUpcomingRepair() {
-        return upcomingRepair;
+    public String getPendingRepair() {
+        return pendingRepair;
     }
 
-    public void setUpcomingRepair(String upcomingRepair) {
-        this.upcomingRepair = upcomingRepair;
+    public void setPendingRepair(String pendingRepair) {
+        this.pendingRepair = pendingRepair;
     }
 
 

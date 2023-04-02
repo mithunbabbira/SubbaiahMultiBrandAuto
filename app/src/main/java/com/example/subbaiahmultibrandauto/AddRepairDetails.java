@@ -10,16 +10,17 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.subbaiahmultibrandauto.ExistingData.ExistingVehicleDataList;
 import com.example.subbaiahmultibrandauto.adapter.IndividualRepairAdapter;
 import com.example.subbaiahmultibrandauto.databinding.ActivityAddRepairDetailsBinding;
 import com.example.subbaiahmultibrandauto.entities.Data;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.gson.Gson;
 
@@ -63,7 +64,7 @@ public class AddRepairDetails extends AppCompatActivity {
 
         activityAddRepairDetailsBinding.upcomingRepairDataSubBtn.setOnClickListener(view -> {
             if(!activityAddRepairDetailsBinding.upcomingRepair.getText().toString().isEmpty()){
-                data.setUpcomingRepair(activityAddRepairDetailsBinding.upcomingRepair.getText().toString());
+                data.setPendingRepair(activityAddRepairDetailsBinding.upcomingRepair.getText().toString());
             }
         });
 
@@ -88,6 +89,7 @@ public class AddRepairDetails extends AppCompatActivity {
 
         confirm.setOnClickListener(view -> {
             data.setCurrentRepairList(currentRepairList);
+            activityAddRepairDetailsBinding.rlLoader.setVisibility(View.VISIBLE);
             addDataToFireStore();
             dialog.dismiss();
         });
@@ -101,15 +103,28 @@ public class AddRepairDetails extends AppCompatActivity {
         mStore.collection("VehicleNo").document(data.getVehicleNo()).collection("data").document(docID).set(data).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {
-                finish();
+
                 Toast.makeText(AddRepairDetails.this ,"success", Toast.LENGTH_SHORT).show();
+                activityAddRepairDetailsBinding.rlLoader.setVisibility(View.GONE);
+                gotoHomePage();
+
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
                 Toast.makeText(AddRepairDetails.this ,"fail", Toast.LENGTH_SHORT).show();
+                activityAddRepairDetailsBinding.rlLoader.setVisibility(View.GONE);
+                gotoHomePage();
+
             }
         });
+    }
+
+    private void gotoHomePage() {
+        Intent myIntent = new Intent(AddRepairDetails.this, MainActivity.class);
+        startActivity(myIntent);
+        finish();
+
     }
 
     private void initialisation() {

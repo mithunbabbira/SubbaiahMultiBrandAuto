@@ -11,14 +11,17 @@ import android.widget.DatePicker;
 import com.example.subbaiahmultibrandauto.databinding.ActivityAddNewVehicleBinding;
 import com.example.subbaiahmultibrandauto.entities.Data;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 public class AddNewVehicle extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
     ActivityAddNewVehicleBinding activityAddNewVehicleBinding;
     private String newVehicleNo , vehicleModel;
     private String date;
+    private  Calendar calendar = Calendar.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +29,7 @@ public class AddNewVehicle extends AppCompatActivity implements DatePickerDialog
         setContentView(R.layout.activity_add_new_vehicle);
         activityAddNewVehicleBinding = DataBindingUtil.setContentView(this, R.layout.activity_add_new_vehicle);
 
+        initialisation();
 
         Intent intent = getIntent();
         newVehicleNo = intent.getStringExtra("newVehicleNumber");
@@ -35,15 +39,12 @@ public class AddNewVehicle extends AppCompatActivity implements DatePickerDialog
         activityAddNewVehicleBinding.vehicleNum.setText(newVehicleNo);
 
         Data data = new Data();
-        Map<String, Data> mMap = new HashMap<>();
         data.setVehicleNo(newVehicleNo);
 
 
         activityAddNewVehicleBinding.setDateBtn.setOnClickListener(view -> {
             showDatePickerDailog();
         });
-
-
         activityAddNewVehicleBinding.submitBtn.setOnClickListener(view -> {
             if (activityAddNewVehicleBinding.vehicleNum.getText().length() == 0) {
                 activityAddNewVehicleBinding.vehicleNum.setError("please enter");
@@ -65,26 +66,37 @@ public class AddNewVehicle extends AppCompatActivity implements DatePickerDialog
         });
     }
 
+    private void initialisation() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+        date = dateFormat.format(calendar.getTime());
+        activityAddNewVehicleBinding.dataSet.setText(date);
+    }
+
     private void startNewIntent(Data data) {
         Intent myIntent = new Intent(AddNewVehicle.this, AddRepairDetails.class);
         myIntent.putExtra("data", data);
         startActivity(myIntent);
+        finish();
 
     }
 
 
     private void showDatePickerDailog(){
-        DatePickerDialog datePickerDialog = new DatePickerDialog(this,this
-                ,
-                Calendar.getInstance().get(Calendar. YEAR) ,
-                Calendar. getInstance().get(Calendar.MONTH) ,
-                Calendar.getInstance().get (Calendar .DAY_OF_MONTH)
 
-        );
-        datePickerDialog. show();
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH);
+        int dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
+
+        // Format the date as a string
+
+
+        // Create a new DatePickerDialog with today's date as default
+        DatePickerDialog datePickerDialog = new DatePickerDialog(this, this, year, month, dayOfMonth);
+
+        // Show the DatePickerDialog
+        datePickerDialog.show();
 
     }
-
     @Override
     public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
         date = i2+"/"+i1+"/"+i;

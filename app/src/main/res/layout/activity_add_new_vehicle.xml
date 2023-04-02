@@ -5,6 +5,7 @@
 >
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
+            android:background="@drawable/add_new_details_background"
             android:layout_height="match_parent">
 
             <LinearLayout
@@ -14,7 +15,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="230dp"
                 android:layout_marginBottom="20dp"
                 android:orientation="vertical">
 
@@ -28,15 +29,18 @@
                     android:hint="Vehicle Number"
                     android:paddingLeft="20dp"
                     android:paddingRight="20dp"
-                    app:hintTextColor="@color/white"
-                    app:counterTextColor="@color/white">
+                    app:hintTextColor="@color/black"
+                    app:boxStrokeColor="@color/black"
+                    app:helperTextTextColor="@color/white"
+
+                    app:counterTextColor="@color/black">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/vehicleNum"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textCapCharacters"
-                        android:textColor="@color/white" />
+                        android:textColor="@color/black" />
                 </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -50,15 +54,16 @@
                     android:hint="Vehicle Model"
                     android:paddingLeft="20dp"
                     android:paddingRight="20dp"
-                    app:hintTextColor="@color/white"
-                    app:counterTextColor="@color/white">
+                    app:hintTextColor="@color/black"
+                    app:boxStrokeColor="@color/black"
+                    app:counterTextColor="@color/black">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/vehicleMod"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textCapCharacters"
-                        android:textColor="@color/white" />
+                        android:textColor="@color/black" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -73,15 +78,16 @@
                     android:hint="Mileage"
                     android:paddingLeft="20dp"
                     android:paddingRight="20dp"
-                    app:hintTextColor="@color/white"
-                    app:counterTextColor="@color/white">
+                    app:hintTextColor="@color/black"
+                    app:boxStrokeColor="@color/black"
+                    app:counterTextColor="@color/black">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/mileage"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="number"
-                        android:textColor="@color/white"/>
+                        android:textColor="@color/black"/>
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
 
@@ -89,10 +95,11 @@
                 android:id="@+id/dataSet"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:layout_marginStart="30dp"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-                app:layout_constraintStart_toStartOf="@+id/linearLayout"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toStartOf="@+id/setDateBtn"
+                app:layout_constraintTop_toTopOf="@+id/setDateBtn"
+                android:layout_marginRight="50dp"
+                app:layout_constraintBottom_toBottomOf="@+id/setDateBtn"
                 />
 
             <Button
@@ -104,16 +111,18 @@
                 android:layout_marginEnd="30dp"
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout"
                 app:layout_constraintEnd_toEndOf="@id/linearLayout"/>
+
             <Button
                 android:id="@+id/submitBtn"
                 android:layout_width="120dp"
                 android:layout_height="50dp"
                 android:gravity="center"
+                android:text="Submit"
+                android:layout_marginTop="16dp"
                 android:textColor="@color/black"
-                app:layout_constraintTop_toBottomOf="@+id/dataSet"
-                app:layout_constraintStart_toStartOf="@+id/linearLayout"
                 app:layout_constraintEnd_toEndOf="@+id/linearLayout"
-                android:text="Submit" />
+                app:layout_constraintStart_toStartOf="@+id/linearLayout"
+                app:layout_constraintTop_toBottomOf="@+id/setDateBtn" />
 
 
             <RelativeLayout

@@ -4,27 +4,23 @@
     >
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:background="@color/white"
+        android:background="@drawable/background"
         android:layout_height="match_parent">
-
-
         <EditText
             android:id="@+id/getVehicleNo"
-            android:backgroundTint="@color/black"
-            android:textColor="@color/black"
-            android:hint="Vehicle Number"
-            android:textColorHint="@color/black"
-            android:inputType="textCapCharacters"
-            android:textAllCaps="true"
-            android:gravity="center"
-            android:textAlignment="center"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="150dp"
-            app:layout_constraintStart_toStartOf="parent"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
-            />
+            android:backgroundTint="@color/white"
+            android:gravity="center"
+            android:hint="Vehicle Number"
+            android:inputType="textCapCharacters"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            app:layout_constraintBottom_toTopOf="@+id/submitBtn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/submitBtn"
@@ -32,10 +28,10 @@
             android:layout_height="50dp"
             android:text="Submit"
             android:textColor="@color/black"
-            app:layout_constraintTop_toBottomOf="@+id/getVehicleNo"
-            app:layout_constraintStart_toStartOf="@+id/getVehicleNo"
+            android:layout_marginBottom="100dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/getVehicleNo"
-            />
+            app:layout_constraintStart_toStartOf="@+id/getVehicleNo"/>
 
 
         <RelativeLayout

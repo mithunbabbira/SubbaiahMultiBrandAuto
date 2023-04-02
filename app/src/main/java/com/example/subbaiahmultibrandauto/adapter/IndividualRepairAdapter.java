@@ -39,9 +39,15 @@ public class IndividualRepairAdapter extends RecyclerView.Adapter<IndividualRepa
     public void onBindViewHolder(@NonNull IndividualRepairAdapter.ViewHolder ViewHolder, int position) {
         ViewHolder.itemTv.setText(items.get(position));
 
-        viewHolder.close.setOnClickListener(view -> {
-            listener.deletePosition(position);
-        });
+        if(listener!=null){
+            viewHolder.close.setOnClickListener(view -> {
+                listener.deletePosition(position);
+            });
+        }else{
+            viewHolder.close.setVisibility(View.GONE);
+        }
+
+
     }
 
 

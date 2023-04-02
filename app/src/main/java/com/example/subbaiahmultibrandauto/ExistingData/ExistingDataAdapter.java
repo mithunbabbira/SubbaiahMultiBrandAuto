@@ -12,9 +12,11 @@ import java.util.List;
 public class ExistingDataAdapter  extends RecyclerView.Adapter<ExistingDataAdapter.ViewHolder>{
     private Context context ;
     private  List<Data> dataList ;
-    public ExistingDataAdapter (Context context, List<Data> dataList) {
+    private  ExistingVehicleDataList.Listerner listener ;
+    public ExistingDataAdapter (Context context, List<Data> dataList, ExistingVehicleDataList.Listerner listener) {
         this.context = context  ;
         this.dataList = dataList;
+        this.listener = listener;
     }
     @NonNull
     @Override
@@ -26,6 +28,9 @@ public class ExistingDataAdapter  extends RecyclerView.Adapter<ExistingDataAdapt
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.date.setText(dataList.get(position).getDate());
+        holder.date.setOnClickListener(view -> {
+            listener.clickedItem(position);
+        });
     }
 
     @Override
