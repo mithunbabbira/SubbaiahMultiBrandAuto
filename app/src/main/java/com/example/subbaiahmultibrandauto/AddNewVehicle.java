@@ -80,6 +80,19 @@ public class AddNewVehicle extends AppCompatActivity implements DatePickerDialog
 
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+        gotoHomePage();
+    }
+
+    private void gotoHomePage() {
+        Intent myIntent = new Intent(AddNewVehicle.this, MainActivity.class);
+        startActivity(myIntent);
+        finish();
+
+    }
 
     private void showDatePickerDailog(){
 

@@ -35,7 +35,7 @@ public class ExistingVehicleDataList extends AppCompatActivity {
 
         activityExistingVehicleDataListBinding.vehicleNoTv.setText(":   "+dataList.get(0).getVehicleNo());
         activityExistingVehicleDataListBinding.vehicleModelTv.setText(":   "+dataList.get(0).getVehicleModel());
-        activityExistingVehicleDataListBinding.phoneNoTv.setText(":   "+dataList.get(0).getPhoneNo());
+//        activityExistingVehicleDataListBinding.phoneNoTv.setText(":   "+dataList.get(0).getPhoneNo());
         activityExistingVehicleDataListBinding.addMoreBtn.setOnClickListener(view -> {
             Intent myIntent = new Intent(ExistingVehicleDataList.this, AddNewVehicle.class);
             myIntent.putExtra("newVehicleNumber",dataList.get(0).getVehicleNo());

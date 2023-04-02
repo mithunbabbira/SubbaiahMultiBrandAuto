@@ -92,10 +92,20 @@ public class AddRepairDetails extends AppCompatActivity {
         });
 
         confirm.setOnClickListener(view -> {
-            data.setCurrentRepairList(currentRepairList);
-            activityAddRepairDetailsBinding.rlLoader.setVisibility(View.VISIBLE);
-            addDataToFireStore();
-            dialog.dismiss();
+
+
+            if(currentRepairList!=null&& !currentRepairList.isEmpty()){
+                data.setCurrentRepairList(currentRepairList);
+                activityAddRepairDetailsBinding.rlLoader.setVisibility(View.VISIBLE);
+                addDataToFireStore();
+                dialog.dismiss();
+
+            }else{
+
+                Toast.makeText(AddRepairDetails.this ,"Repair list can not be empty", Toast.LENGTH_SHORT).show();
+
+            }
+
         });
 
         dialog.show();
