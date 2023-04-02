@@ -71,6 +71,10 @@ public class AddRepairDetails extends AppCompatActivity {
         activityAddRepairDetailsBinding.submit.setOnClickListener(view -> {
             showConfirmDialog();
         });
+
+        activityAddRepairDetailsBinding.resetPending.setOnClickListener(view -> {
+            activityAddRepairDetailsBinding.upcomingRepair.setText("");
+        });
     }
 
     private void showConfirmDialog() {
